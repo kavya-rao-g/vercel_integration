@@ -37,13 +37,14 @@ class handler(BaseHTTPRequestHandler):
         #         result.append(20)
 
         # Prepare JSON response
-        return {
-            'statusCode': 200,
-            'body': json.dumps({"marks": names}),
-            'headers': {
-                'Content-Type': 'application/json',
-            }
-        }
+        self.wfile.write(json.dumps({"marks": names}).encode('utf-8'))
+        # return {
+        #     'statusCode': 200,
+        #     'body': json.dumps({"marks": names}),
+        #     'headers': {
+        #         'Content-Type': 'application/json',
+        #     }
+        # }
         
 
 '''
